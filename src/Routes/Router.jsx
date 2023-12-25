@@ -5,6 +5,9 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import SignUp from "../Pages/SignUp/SignUp";
 import SignIn from "../Pages/SignIn/SignIn";
 import PrivateRoute from "../Pages/Private Route/PrivateRoute";
+import Create from "../Pages/Dashboard/Create";
+import Tasks from "../Pages/Dashboard/Tasks";
+import TaskStatus from "../Pages/Dashboard/TaskStatus";
 
 export const router = createBrowserRouter([
   {
@@ -16,14 +19,14 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
 
-      {
-        path: "dash",
-        element: (
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "dash",
+      //   element: (
+      //     <PrivateRoute>
+      //       <Dashboard></Dashboard>
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "signUp",
         element: <SignUp></SignUp>,
@@ -31,6 +34,28 @@ export const router = createBrowserRouter([
       {
         path: "signIn",
         element: <SignIn></SignIn>,
+      },
+    ],
+  },
+  {
+    path: "dash",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "createTask",
+        element: <Create></Create>,
+      },
+      {
+        path: "tasks",
+        element: <Tasks></Tasks>,
+      },
+      {
+        path: "taskStatus",
+        element: <TaskStatus></TaskStatus>,
       },
     ],
   },
